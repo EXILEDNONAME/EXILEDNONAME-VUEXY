@@ -24,10 +24,19 @@
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/@form-validation/umd/styles/index.min.css" />
+    @stack('head')
 
     <!-- Helpers -->
     <script src="{{ env('APP_URL') }}/assets/backend/vendor/js/helpers.js"></script>
-    <script src="{{ env('APP_URL') }}/assets/backend/vendor/js/template-customizer.js"></script>
     <script src="{{ env('APP_URL') }}/assets/backend/js/config.js"></script>
   </head>
 
@@ -46,7 +55,6 @@
               @include('layouts.backend.__includes.navbar-search')
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 @include('layouts.backend.__includes.navbar-language')
-                @include('layouts.backend.__includes.navbar-style')
                 @include('layouts.backend.__includes.navbar-shortcut')
                 @include('layouts.backend.__includes.navbar-notification')
                 @include('layouts.backend.__includes.navbar-user')
@@ -62,96 +70,22 @@
             <!-- Content -->
 
             <div class="container-fluid flex-grow-1 container-p-y">
-              <!-- Layout Demo -->
-              <div class="layout-demo-wrapper">
-                <div class="layout-demo-placeholder">
-                  <img
-                  src="{{ env('APP_URL') }}/assets/backend/img/layouts/layout-fluid-light.png"
-                  class="img-fluid"
-                  alt="Layout fluid"
-                  data-app-light-img="layouts/layout-fluid-light.png"
-                  data-app-dark-img="layouts/layout-fluid-dark.png" />
-                </div>
-                <div class="layout-demo-info">
-                  <h4>Layout fluid</h4>
-                  <p>Fluid layout sets a <code>100% width</code> at each responsive breakpoint.</p>
-                </div>
-              </div>
-              <!--/ Layout Demo -->
+
+              @yield('content')
+
             </div>
-            <!-- / Content -->
 
-            <!-- Footer -->
-            <footer class="content-footer footer bg-footer-theme">
-              <div class="container-fluid">
-                <div
-                  class="footer-container d-flex align-items-center justify-content-between py-2 flex-md-row flex-column">
-                    <div>
-                      ©
-                      <script>
-                        document.write(new Date().getFullYear());
-                      </script>
-                      , made with ❤️ by <a href="https://pixinvent.com" target="_blank" class="fw-medium">Pixinvent</a>
-                    </div>
-                    <div class="d-none d-lg-inline-block">
-                      <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank"
-                        >License</a
-                        >
-                        <a href="https://1.envato.market/pixinvent_portfolio" target="_blank" class="footer-link me-4"
-                          >More Themes</a
-                          >
+            @include('layouts.backend.__includes.footer')
+            <div class="content-backdrop fade"></div>
+          </div>
+        </div>
+      </div>
 
-                          <a
-                            href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
-                              target="_blank"
-                                class="footer-link me-4"
-                                  >Documentation</a
-                                  >
+      <div class="layout-overlay layout-menu-toggle"></div>
 
-                                  <a href="https://pixinvent.ticksy.com/" target="_blank" class="footer-link d-none d-sm-inline-block"
-                                    >Support</a
-                                    >
-                                  </div>
-                                </div>
-                              </div>
-                            </footer>
-                            <!-- / Footer -->
+      <div class="drag-target"></div>
+    </div>
 
-                            <div class="content-backdrop fade"></div>
-                          </div>
-                          <!-- Content wrapper -->
-                        </div>
-                        <!-- / Layout page -->
-                      </div>
-
-                      <!-- Overlay -->
-                      <div class="layout-overlay layout-menu-toggle"></div>
-
-                      <!-- Drag Target Area To SlideIn Menu On Small Screens -->
-                      <div class="drag-target"></div>
-                    </div>
-                    <!-- / Layout wrapper -->
-
-                    <!-- Core JS -->
-                    <!-- build:js assets/vendor/js/core.js -->
-
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/jquery/jquery.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/popper/popper.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/js/bootstrap.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/node-waves/node-waves.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/hammer/hammer.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/i18n/i18n.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/typeahead-js/typeahead.js"></script>
-                    <script src="{{ env('APP_URL') }}/assets/backend/vendor/js/menu.js"></script>
-
-                    <!-- endbuild -->
-
-                    <!-- Vendors JS -->
-
-                    <!-- Main JS -->
-                    <script src="{{ env('APP_URL') }}/assets/backend/js/main.js"></script>
-
-                    <!-- Page JS -->
-                  </body>
-                </html>
+    @include('layouts.backend.__includes.js')
+  </body>
+</html>
