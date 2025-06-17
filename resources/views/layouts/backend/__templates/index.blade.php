@@ -8,7 +8,7 @@
 <div class="card card-action">
   <div class="card-alert"></div>
   <div class="card-header border-bottom">
-    <div class="card-action-title align-middle">Cards Action</div>
+    <div class="card-action-title align-middle"> Main </div>
     <div class="card-action-element">
       <ul class="list-inline mb-0">
         <li class="list-inline-item"><a href="javascript:void(0);" class="card-collapsible"><i class="tf-icons ti ti-chevron-right scaleX-n1-rtl ti-xs"></i></a></li>
@@ -19,26 +19,41 @@
     </div>
   </div>
   <div class="collapse show">
-    <div class="card-datatable">
-    <table class="datatables-basic table" id="exilednoname_table">
-      <thead>
-        <tr>
-          @yield('table-header')
-        </tr>
-      </thead>
-    </table>
-  </div>
+    <div class="card-body">
+      <div class="card-datatable">
+        <div class="table-responsive">
+          <table class="table" id="exilednoname_table" width="100%">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="text-center"> # </th>
+                @yield('table-header')
+                <th style="padding-right: 50px;"> </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 @endsection
 
 @push('js')
+<script>
+$(document).ready( function () {
+
+});
+</script>
 
 <script>
-
-  var table = $('#exilednoname_table').DataTable({
+  var indexLastColumn = $("#exilednoname_table").find('tr')[0].cells.length-1;
+  $('#exilednoname_table').DataTable({
     serverSide: true,
     searching: true,
+    processing: true,
+    scrollX: true,
+    scrollY: true,
     rowId: 'Collocation',
     select: {
       style: 'multi',
@@ -46,19 +61,9 @@
     },
     ajax: {
       url: "{{ URL::current() }}",
-      "data" : function (ex) {
-        @if (empty($date) || $date == 'true')
-        ex.date_start = $('#date_start').val();
-        ex.date_end = $('#date_end').val();
-        @endif
-      }
     },
     headerCallback: function(thead, data, start, end, display) {
-      thead.getElementsByTagName('th')[0].innerHTML = `
-      <label class="checkbox checkbox-single checkbox-solid checkbox-primary mb-0">
-        <input type="checkbox" value="" class="group-checkable"/>
-        <span></span>
-      </label>`;
+      thead.getElementsByTagName('th')[0].innerHTML = `<input class="form-check-input" type="checkbox" value="">`;
     },
     "lengthMenu": [[50, 100, 250, 500, -1], [50, 100, 250, 500, "All"]],
     buttons: [
@@ -74,67 +79,32 @@
     columns: [
       {
         data: 'checkbox', orderable: false, searchable: false, 'width': '1',
-        render: function(data, type, row, meta) { return '<label class="checkbox checkbox-single checkbox-primary mb-0"><input type="checkbox" data-id="' + row.id + '" class="checkable"><span></span></label>'; },
+        render: function(data, type, row, meta) { return '<input class="form-check-input" type="checkbox" value="">'; },
       },
       {
         data: 'autonumber', orderable: false, searchable: false, 'className': 'align-middle text-center', 'width': '1',
         render: function(data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; }
       },
-      @if (empty($date) || $date == 'true')
-      {
-        data: 'date', orderable: true, 'className': 'align-middle text-nowrap', 'width': '1',
-        render: function ( data, type, row ) {
-          if (data == null) { return '<center> - </center>'}
-          else { return data; }
-        }
-      },
-      @endif
       @yield('table-body')
-      @if (empty($active) || $active == 'true')
       {
-        data: 'active', orderable: true, 'className': 'align-middle text-center', 'width': '1',
-        render: function ( data, type, row ) {
-          if ( data == 0 ) { return '<a href="javascript:void(0);" id="active" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
-          if ( data == 1 ) { return '<a href="javascript:void(0);" id="inactive" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-info label-inline"> {{ __("default.label.yes") }} </span></a>'; }
-          if ( data == 0 ) { return '<a href="javascript:void(0);" id="active" data-toggle="tooltip" data-id="' + row.id + '"><span class="label label-dark label-inline"> {{ __("default.label.no") }} </span></a>'; }
-        }
-      },
-      @endif
-      @if (!empty($page) && $page != 'datatable-index-sheet')
-      {
-        data: 'action',
-        orderable: false,
-        searchable: false,
-        'width': '1',
+        data: 'action', orderable: false, searchable: false, 'className': 'align-middle text-center', 'width': '1',
         render: function(data, type, row) {
           return '' +
-          '<div class="dropdown dropdown-inline">' +
-          '<button type="button" class="btn btn-hover-light-dark btn-icon btn-xs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ki ki-bold-more-ver"></i></button>' +
-          '<div class="dropdown-menu dropdown-menu-xs" style="">' +
-          '<ul class="navi navi-hover py-5">' +
-          '<li class="navi-item"><a href="{{ URL::current() }}/' + row.id + '" class="navi-link"><span class="navi-icon"><i class="flaticon2-expand"></i></span><span class="navi-text">{{ __("default.label.view") }}</span></a></li>' +
-          '<li class="navi-item"><a href="{{ URL::current() }}/' + row.id + '/edit" class="navi-link"><span class="navi-icon"><i class="flaticon2-contract"></i></span><span class="navi-text">{{ __("default.label.edit") }}</span></a></li>' +
-          '<li class="navi-item"><a href="javascript:void(0);" class="navi-link delete" data-id="' + row.id + '"><span class="navi-icon"><i class="flaticon2-trash"></i></span><span class="navi-text"> {{ __("default.label.delete./") }} </span></a></li>' +
-          '</ul>' +
-          '</div>' +
+          '<div class="dropdown">' +
+          '<button class="btn p-0" type="button" id="earningReportsId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
+          '<i class="ti ti-dots-vertical ti-sm text-muted"></i>' +
+          '</button>' +
+          '<div class="dropdown-menu dropdown-menu-end" aria-labelledby="earningReportsId" style="">' +
+          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '">View More</a>' +
+          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '/edit">Delete</a>' +
+          '</div>'
           '</div>';
         },
       },
-      @endif
     ],
     order: [
-      [1, 'asc']
+      [indexLastColumn, 'asc']
     ]
   });
-
-  $('#export_print').on('click', function(e) { e.preventDefault(); table.button(0).trigger(); });
-  $('#export_copy').on('click', function(e) { e.preventDefault(); table.button(1).trigger(); });
-  $('#export_excel').on('click', function(e) { e.preventDefault(); table.button(2).trigger(); });
-  $('#export_pdf').on('click', function(e) { e.preventDefault(); table.button(3).trigger(); });
-
-  @stack('filter-data')
 </script>
-
-
-
 @endpush
