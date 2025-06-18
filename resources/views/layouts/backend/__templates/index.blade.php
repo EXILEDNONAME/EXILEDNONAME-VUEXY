@@ -6,15 +6,15 @@
 
 @section('content')
 <div class="card card-action">
-  <div class="card-alert"></div>
   <div class="card-header border-bottom">
     <div class="card-action-title align-middle"> Main </div>
     <div class="card-action-element">
       <ul class="list-inline mb-0">
-        <li class="list-inline-item"><a href="javascript:void(0);" class="card-collapsible"><i class="tf-icons ti ti-chevron-right scaleX-n1-rtl ti-xs"></i></a></li>
+        <li class="list-inline-item"><a href="{{ URL::current() }}/create"><i class="tf-icons ti ti-plus ti-xs"></i></a></li>
         <li class="list-inline-item"><a href="javascript:void(0);" class="card-reload"><i class="tf-icons ti ti-rotate-clockwise-2 scaleX-n1-rtl ti-xs"></i></a></li>
         <li class="list-inline-item"><a href="javascript:void(0);" class="card-expand"><i class="tf-icons ti ti-arrows-maximize ti-xs"></i></a></li>
-        <li class="list-inline-item"><a href="javascript:void(0);" class="card-close"><i class="tf-icons ti ti-x ti-xs"></i></a></li>
+        <li class="list-inline-item"><a href="javascript:void(0);" class="card-expand"><i class="tf-icons ti ti-download ti-xs"></i></a></li>
+        <li class="list-inline-item"><a href="javascript:void(0);" class="card-collapsible" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Minimize/Maximaze"><i class="tf-icons ti ti-chevron-down ti-xs"></i></a></li>
       </ul>
     </div>
   </div>
@@ -30,7 +30,7 @@
                 @yield('table-header')
                 <th style="padding-right: 50px;"> </th>
               </tr>
-              
+
             </thead>
           </table>
         </div>
