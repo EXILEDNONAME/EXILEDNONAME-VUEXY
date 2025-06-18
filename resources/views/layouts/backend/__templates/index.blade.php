@@ -30,6 +30,7 @@
                 @yield('table-header')
                 <th style="padding-right: 50px;"> </th>
               </tr>
+              
             </thead>
           </table>
         </div>
@@ -40,12 +41,6 @@
 @endsection
 
 @push('js')
-<script>
-$(document).ready( function () {
-
-});
-</script>
-
 <script>
   var indexLastColumn = $("#exilednoname_table").find('tr')[0].cells.length-1;
   $('#exilednoname_table').DataTable({

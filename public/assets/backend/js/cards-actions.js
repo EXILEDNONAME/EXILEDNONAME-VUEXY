@@ -22,7 +22,7 @@
         // Toggle collapsed class in `.card-header` element
         collapseElement.closest('.card-header').classList.toggle('collapsed');
         // Toggle class ti-chevron-down & ti-chevron-right
-        Helpers._toggleClass(collapseElement.firstElementChild, 'ti-chevron-down', 'ti-chevron-right');
+        Helpers._toggleClass(collapseElement.firstElementChild, 'ti-chevron-down', 'ti-chevron-up');
       });
     });
   }

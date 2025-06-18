@@ -55,10 +55,6 @@
       </ul>
     </li>
 
-
-
-    <!-- Layouts -->
-
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link">
         <i class="menu-icon tf-icons ti ti-folder"></i>
@@ -88,6 +84,28 @@
         <i class="menu-icon tf-icons ti ti-logout"></i>
         <div data-i18n="Support"> Logout </div>
       </a>
+    </li>
+
+    <li class="menu-header small text-uppercase">
+      <span class="menu-header-text"> Applications </span>
+    </li>
+    <li class="menu-item {{ (request()->is('dashboard/applications/datatables*')) ? 'active open' : '' }}">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons ti ti-files"></i>
+        <div data-i18n="Front Pages"> Datatables </div>
+      </a>
+      <ul class="menu-sub">
+        <li class="menu-item {{ (request()->is('dashboard/applications/datatables*')) ? 'active' : '' }}">
+          <a href="../front-pages/landing-page.html" class="menu-link" target="_blank">
+            <div data-i18n="Landing"> Generals </div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="../front-pages/pricing-page.html" class="menu-link" target="_blank">
+            <div data-i18n="Pricing"> Relations </div>
+          </a>
+        </li>
+      </ul>
     </li>
 
     <li class="menu-header small text-uppercase">
@@ -159,25 +177,6 @@
               <i class="menu-icon tf-icons ti ti-file-description"></i>
               <div data-i18n="Documentation">Documentation</div>
             </a>
-          </li>
-          <li class="menu-item active open">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons ti ti-layout-sidebar"></i>
-              <div data-i18n="Layouts">Layouts</div>
-            </a>
-
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="layouts-collapsed-menu.html" class="menu-link">
-                  <div data-i18n="Collapsed menu">Collapsed menu</div>
-                </a>
-              </li>
-              <li class="menu-item active">
-                <a href="layouts-fluid.html" class="menu-link">
-                  <div data-i18n="Fluid">Fluid</div>
-                </a>
-              </li>
-            </ul>
           </li>
         </ul>
       </aside>

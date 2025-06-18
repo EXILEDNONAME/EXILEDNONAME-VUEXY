@@ -4,7 +4,7 @@
 @push('content')
 <tr>
   <td class="align-middle font-weight-bold"> Name </td>
-  <td class="align-middle"> {!! $data->name !!} </td>
+  <td class="align-middle text-nowrap"> {!! $data->name !!} </td>
 </tr>
 <tr>
   <td class="align-middle font-weight-bold"> Description </td>
