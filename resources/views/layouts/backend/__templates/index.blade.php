@@ -73,16 +73,16 @@
     ],
     columns: [
       {
-        data: 'checkbox', orderable: false, searchable: false, 'width': '1',
+        data: 'checkbox', orderable: false, searchable: false, 'className': 'align-top text-center', 'width': '1',
         render: function(data, type, row, meta) { return '<input class="form-check-input" type="checkbox" value="">'; },
       },
       {
-        data: 'autonumber', orderable: false, searchable: false, 'className': 'align-middle text-center', 'width': '1',
+        data: 'autonumber', orderable: false, searchable: false, 'className': 'align-top text-center', 'width': '1',
         render: function(data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; }
       },
       @yield('table-body')
       {
-        data: 'action', orderable: false, searchable: false, 'className': 'align-middle text-center', 'width': '1',
+        data: 'action', orderable: false, searchable: false, 'className': 'align-top text-center', 'width': '1',
         render: function(data, type, row) {
           return '' +
           '<div class="dropdown">' +
@@ -90,8 +90,9 @@
           '<i class="ti ti-dots-vertical ti-sm text-muted"></i>' +
           '</button>' +
           '<div class="dropdown-menu dropdown-menu-end" aria-labelledby="earningReportsId" style="">' +
-          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '">View More</a>' +
-          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '/edit">Delete</a>' +
+          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '"> View </a>' +
+          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '/edit"> Edit </a>' +
+          '<a class="dropdown-item" href="{{ URL::current() }}/' + row.id + '"> Delete</a>' +
           '</div>'
           '</div>';
         },

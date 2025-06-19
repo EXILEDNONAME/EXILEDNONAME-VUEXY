@@ -7,6 +7,6 @@
 @endsection
 
 @section('table-body')
-{ data: 'name' },
+{ data: 'name', 'className': 'align-top' },
 { data: 'description' },
 @endsection
