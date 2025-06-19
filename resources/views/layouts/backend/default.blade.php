@@ -34,6 +34,7 @@
     <!-- Form Validation -->
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/@form-validation/umd/styles/index.min.css" />
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/sweetalert2/sweetalert2.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/spinkit/spinkit.css" />
     @stack('head')
 
     <!-- Helpers -->

@@ -11,7 +11,7 @@
         <li class="list-inline-item"><a href="javascript:void(0);" onclick="printData('printData')"><i class="tf-icons ti ti-printer ti-xs"></i></a></li>
         <li class="list-inline-item">
           <a href="javascript:void(0);" data-bs-toggle="dropdown"><i class="tf-icons ti ti-chevron-down ti-xs"></i></a>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ URL::current() }}/edit"> {{ __('default.label.edit') }} </a>
             <form method="POST" id="exilednoname-form" class="nav-link" action="{{ URL::current() }}/../{{ $data->id }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
               @method('DELETE')
