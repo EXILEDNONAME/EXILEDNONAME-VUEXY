@@ -15,6 +15,7 @@
 <!-- Flat Picker -->
 <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/moment/moment.js"></script>
 <script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/flatpickr/flatpickr.js"></script>
+<script src="{{ env('APP_URL') }}/assets/backend/vendor/libs/sweetalert2/sweetalert2.js"></script>
 
 <script src="{{ env('APP_URL') }}/assets/backend/js/main.js"></script>
 @stack('js')

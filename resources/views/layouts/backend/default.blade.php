@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
     <!-- Form Validation -->
     <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/@form-validation/umd/styles/index.min.css" />
+    <link rel="stylesheet" href="{{ env('APP_URL') }}/assets/backend/vendor/libs/sweetalert2/sweetalert2.css" />
     @stack('head')
 
     <!-- Helpers -->
