@@ -12,6 +12,12 @@ return [
     ],
     'details'                       => 'Details',
     'edit'                          => 'Edit',
+    'export' => [
+      'copy'                        => 'Copy',
+      'excel'                       => 'Excel',
+      'pdf'                         => 'PDF',
+      'print'                       => 'Print',
+    ],
     'status'                        => 'Status',
     'submit'                        => 'Submit',
     'updated_at'                    => 'Updated At',

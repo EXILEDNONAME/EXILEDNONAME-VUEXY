@@ -16,10 +16,10 @@
         <li class="list-inline-item">
           <a href="javascript:void(0);" data-bs-toggle="dropdown"><i class="tf-icons ti ti-download ti-xs"></i></a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="javascript:void(0);" id="export_copy"> {{ __('default.label.copy') }} </a>
-            <a class="dropdown-item" href="javascript:void(0);" id="export_excel"> {{ __('default.label.excel') }} </a>
-            <a class="dropdown-item" href="javascript:void(0);" id="export_pdf"> {{ __('default.label.pdf') }} </a>
-            <a class="dropdown-item" href="javascript:void(0);" id="export_print"> {{ __('default.label.print') }} </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="export_copy"> {{ __('default.label.export.copy') }} </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="export_excel"> {{ __('default.label.export.excel') }} </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="export_pdf"> {{ __('default.label.export.pdf') }} </a>
+            <a class="dropdown-item" href="javascript:void(0);" id="export_print"> {{ __('default.label.export.print') }} </a>
           </div>
         </li>
 
