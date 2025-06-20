@@ -12,6 +12,7 @@
       <ul class="list-inline mb-0">
         <li class="list-inline-item"><a href="{{ URL::current() }}/create"><i class="tf-icons ti ti-plus ti-xs"></i></a></li>
         <li class="list-inline-item"><a href="javascript:void(0);" id="table-reload" class="card-reload"><i class="tf-icons ti ti-rotate-clockwise-2 scaleX-n1-rtl ti-xs"></i></a></li>
+        <li class="list-inline-item"><a href="javascript:void(0);"><i class="tf-icons ti ti-filter ti-xs"></i></a></li>
         <li class="list-inline-item"><a href="javascript:void(0);" class="card-expand"><i class="tf-icons ti ti-arrows-maximize ti-xs"></i></a></li>
         <li class="list-inline-item">
           <a href="javascript:void(0);" data-bs-toggle="dropdown"><i class="tf-icons ti ti-download ti-xs"></i></a>
@@ -23,7 +24,7 @@
           </div>
         </li>
 
-        <li class="list-inline-item"><a href="javascript:void(0);" class="card-collapsible" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Minimize/Maximaze"><i class="tf-icons ti ti-chevron-down ti-xs"></i></a></li>
+        <li class="list-inline-item"><a href="javascript:void(0);" class="card-collapsible"><i class="tf-icons ti ti-chevron-down ti-xs"></i></a></li>
       </ul>
     </div>
   </div>
@@ -37,6 +38,7 @@
                 <th class="no-export"></th>
                 <th class="text-center no-export"> # </th>
                 @yield('table-header')
+                <th class="text-center"> Active </th>
                 <th class="no-export" style="padding-right: 50px;"> </th>
               </tr>
             </thead>
@@ -90,6 +92,14 @@
         render: function(data, type, row, meta) { return meta.row + meta.settings._iDisplayStart + 1; }
       },
       @yield('table-body')
+      {
+        data: 'active', orderable: true, 'className': 'align-middle text-center', 'width': '1',
+        render: function ( data, type, row ) {
+          if ( data == 0 ) { return '<a href="javascript:void(0);" id="active" data-id="' + row.id + '"><button type="button" class="btn btn-xs btn-dark waves-effect waves-light text-uppercase"> {{ __("default.label.no") }} </button></a>'; }
+          if ( data == 1 ) { return '<a href="javascript:void(0);" id="inactive" data-id="' + row.id + '"><button type="button" class="btn btn-xs btn-info waves-effect waves-light text-uppercase"> {{ __("default.label.yes") }} </button></a>'; }
+          if ( data == 0 ) { return '<a href="javascript:void(0);" id="active" data-id="' + row.id + '"><button type="button" class="btn btn-xs btn-dark waves-effect waves-light text-uppercase"> {{ __("default.label.no") }} </button></a>'; }
+        }
+      },
       {
         data: 'action', orderable: false, searchable: false, 'className': 'align-top text-center', 'width': '1',
         render: function(data, type, row) {

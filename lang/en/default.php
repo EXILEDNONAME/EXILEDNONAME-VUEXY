@@ -18,6 +18,7 @@ return [
       'pdf'                         => 'PDF',
       'print'                       => 'Print',
     ],
+    'no'                            => 'No',
     'status'                        => 'Status',
     'submit'                        => 'Submit',
     'updated_at'                    => 'Updated At',

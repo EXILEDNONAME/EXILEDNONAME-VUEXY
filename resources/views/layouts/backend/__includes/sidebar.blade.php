@@ -63,7 +63,7 @@
     </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons ti ti-files"></i>
+        <i class="menu-icon tf-icons ti ti-user"></i>
         <div data-i18n="Front Pages"> Profiles </div>
       </a>
       <ul class="menu-sub">
@@ -113,7 +113,7 @@
     </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons ti ti-files"></i>
+        <i class="menu-icon tf-icons ti ti-brand-redux"></i>
         <div data-i18n="Front Pages"> Applications </div>
       </a>
       <ul class="menu-sub">
@@ -136,7 +136,7 @@
     </li>
     <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons ti ti-files"></i>
+        <i class="menu-icon tf-icons ti ti-user-shield"></i>
         <div data-i18n="Front Pages"> Managements </div>
       </a>
       <ul class="menu-sub">
